@@ -114,7 +114,7 @@ class MessageForwarder(WebSocketHandler):
         ioloop = IOLoop.current() #add event loop
         ioloop.make_current()
 
-        step_str = step.decode('utf-8')
+        step_str = step
 
         data = {"label": "challenge_step", "index": step_str}
         data = json.dumps(data)
@@ -142,8 +142,8 @@ class MessageForwarder(WebSocketHandler):
 
         title, storyline = title_storyline
 
-        title_str = title.decode('utf-8')
-        storyline_str = storyline.decode('utf-8')
+        title_str = title
+        storyline_str = storyline
 
         data = {"label": "story", "title": title_str, "storyline": storyline_str}
         data = json.dumps(data)
