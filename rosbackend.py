@@ -57,7 +57,16 @@ class RosBackend(BackendBase):
         self.btn_pub = rospy.Publisher("next_step", String, queue_size=1)
 
         self._title = rospy.get_param("story/title", "SUTURO VaB")
-        self._storyline = rospy.get_param("story/storyline", ["HSR moves", "HSR perceives", "HSR found objects and updated Knowledge base", "HSR picks up object (with or without help)", "HSR moves to destination", "HSR places object", "HSR done, table cleaned"])
+        # Clean the Table
+        self._storyline = rospy.get_param("story/storyline", ["HSR opens the dishwasher door", "HSR moves to table", "HSR perceives objects on the table", "HSR found objects and updated Knowledge base", "HSR moves to table", "HSR picks up (or gets) object", "HSR moves to dishwasher", "HSR places object", "HSR done, table cleaned"])
+        # Storing Groceries
+        #self._storyline = rospy.get_param("story/storyline", ["HSR moves to shelf", "HSR opens shelf door(s)", "HSR perceives objects on the shelf", "HSR found objects and updated Knowledge base", "HSR perceives objects on the table", "HSR found objects and updated Knowledge base", "HSR picks up object", "HSR moves to shelf", "HSR places object", "HSR done, groceries stored"])
+        # Serve Breakfast
+        #self._storyline = rospy.get_param("story/storyline", ["HSR moves to shelf", "HSR perceives", "HSR found objects and updated Knowledge base", "HSR moves to shelf", "HSR picks up object", "HSR moves to table", "HSR places object", "HSR perceives again", "HSR sets up breakfast with cereal", "HSR done, breakfast served"])
+        # Carry my luggage
+        #self._storyline = rospy.get_param("story/storyline", ["HSR tries to perceive a human", "HSR found a human", "HSR requests a bag", "HSR follows human", "HSR arrived at destination", "HSR drives back", "HSR done, luggage carried"])
+        # GPSR
+        #self._storyline = rospy.get_param("story/storyline", ["HSR moves", "HSR perceives", "HSR found objects and updated Knowledge base", "HSR picks up object (with or without help)", "HSR moves to destination", "HSR places object", "HSR done, table cleaned"])
 
     def accept_command(self, command_text):
         self.cmd_pub.publish(command_text)
